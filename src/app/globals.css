@@ -3,25 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030518;
+  --foreground: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #030518;
+    --foreground: #fff;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.first img,
+video {
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+.custom-btn {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.class-span {
+  color: #f5a622;
+  border-radius: 50px;
+  border: 1px solid #f5a622;
+  background-color: rgba(245, 166, 34, 0.1);
+  padding: 8px 20px;
+  font-size: 16px;
 }

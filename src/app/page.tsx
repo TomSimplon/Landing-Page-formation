@@ -1,101 +1,90 @@
-import Image from "next/image";
+import { firstQuery } from "@/lib/sanity.query"
+import { urlFor } from "@/lib/sanity"
+import Image from "next/image"
+import { sanityFetch } from "@/lib/sanity.client"
+import { FirstData } from "@/types/queryTypes"
 
-export default function Home() {
+export default async function Home() {
+  const data = (await sanityFetch({
+    query: firstQuery,
+    tags: ["First"],
+  })) as FirstData
+
+  console.log(`data.iaGallery`, data.iaGallery[0].asset.url)
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="pt-[100px]">
+      <div className="first relative flex justify-between h-[700px] overflow-hidden">
+        <div className="flex flex-col items-baseline pl-[80px] pt-[90px]">
+          <p className="class-span">{data?.text1}</p>
+          <h1 className="mt-4 text-6xl font-medium w-[640px]">
+            Des <span className="italic">Visuels</span> <span className="italic text-[#f5a622]">d&apos;Impact</span> en
+            un <span className="italic text-[#f5a622]">Clin d&apos;Œil</span> grâce à{" "}
+            <span className="italic text-[#f5a622]">l&apos;IA</span>
+          </h1>
+          <p className="mt-6 text-[18px] w-[750px]">
+            Maîtrisez l&apos;art de générer des <strong className="font-semibold">images captivantes</strong> avec
+            l&apos;IA et <strong>démarquez-vous</strong> en un temps record.{" "}
+            <strong className="font-semibold">Apprenez à transformer</strong> vos idées en visuels puissants qui{" "}
+            <strong className="font-semibold">séduiront vos clients.</strong>
+          </p>
+          <button className="custom-btn mt-10 font-medium text-xl">{data.button1}</button>
+          <div className="flex gap-2.5 items-center mt-6">
+            <Image src={urlFor(data.clientsImage).url()} alt="Clients Image" width={120} height={25} />
+            <p className="text-sm">{data.clients}</p>
+          </div>
+          <video
+            autoPlay
+            muted
+            loop
+            className="absolute w-[470px] h-[225px] object-cover origin-top-left rotate-3 z-10 -bottom-[20px] -right-[15px]"
+            src={data.iaGallery[4].asset.url}
+          ></video>
+          <video
+            autoPlay
+            muted
+            loop
+            className="absolute w-[360px] h-[200px] object-cover origin-top-left -rotate-3 z-20 -bottom-[40px] right-[450px]"
+            src={data.iaGallery[4].asset.url}
+          ></video>
+          <Image
+            className="absolute w-[150px] h-[210px] object-cover origin-top-left rotate-3 z-20 -bottom-[20px] left-[610px]"
+            src={data.iaGallery[3].asset.url}
+            alt="IA Gallery"
+            width={150}
+            height={210}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div className="iaGrid relative w-full overflow-hidden">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            className="overflow-hidden z-40 absolute -top-[20px] -right-6 origin-top-left rotate-6 w-[256px] h-[360px] object-cover"
+            src={data.iaGallery[3].asset.url}
+            alt="IA Gallery"
+            width={256}
+            height={360}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            className="z-30 absolute top-[40px] right-[200px] origin-top-right -rotate-6 w-[190px] h-[270px] object-cover"
+            src={data.iaGallery[3].asset.url}
+            alt="IA Gallery"
+            width={200}
+            height={270}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+            className="z-40 absolute top-[310px] right-3 origin-top-right -rotate-2 w-[200px] h-[290px] object-cover"
+            src={data.iaGallery[3].asset.url}
+            alt="IA Gallery"
+            width={200}
+            height={290}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Image
+            className="z-20 absolute top-[250px] right-[170px] origin-top-left rotate-6 w-[210px] h-[300px] object-cover"
+            src={data.iaGallery[3].asset.url}
+            alt="IA Gallery"
+            width={210}
+            height={300}
+          />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
