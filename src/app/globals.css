@@ -26,6 +26,14 @@ body {
   }
 }
 
+nav {
+  z-index: 9999;
+}
+
+body {
+  font-weight: 300;
+}
+
 .first img,
 video {
   border-radius: 10px;
@@ -39,6 +47,14 @@ video {
   border-radius: 50px;
   box-sizing: border-box;
 }
+.custom-btn-unshadow {
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+}
 
 .class-span {
   color: #f5a622;
@@ -47,4 +63,70 @@ video {
   background-color: rgba(245, 166, 34, 0.1);
   padding: 8px 20px;
   font-size: 16px;
+}
+
+.swiper-item-custom {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  padding: 40px 20px;
+}
+
+.swiper-pagination {
+  top: 0 !important;
+}
+
+.pricing-card {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  border-radius: 20px;
+  border: 1px solid #fff;
+}
+
+.pricing-places {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid #ffffff99;
+}
+
+.pricing-separator {
+  margin: 24px 0;
+  width: 70%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.pricing-button {
+  font-size: 16px;
+  padding: 10px 40px;
+  border-radius: 50px;
+  color: #000;
+  background: linear-gradient(180deg, #ffffff 0%, #b1b1b1 100%);
+  font-weight: 500;
+  margin-top: 24px;
+  margin-bottom: 14px;
+}
+
+.verticalSwiper {
+  max-height: 700px;
+}
+
+.swiper-review-card {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  border: 1px solid #ffffff99;
+}
+
+.accordion {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  border: 1px solid #ffffff99;
+}
+
+.linkedin {
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  border: 1px solid #ffffff99;
+}
+
+.accordion-border:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }

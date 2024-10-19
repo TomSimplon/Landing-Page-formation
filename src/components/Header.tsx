@@ -16,7 +16,6 @@ async function getLogo() {
 
 export default async function Header() {
   const data = await getLogo()
-
   return (
     <nav className="fixed w-full bg-[#090d19] border-effect px-16 py-6 flex items-center justify-between overflow-hidden">
       <Image src={urlFor(data.logo).url()} alt="Company Logo" width={120} height={45} />
