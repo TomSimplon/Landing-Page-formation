@@ -2,21 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #030518;
-  --foreground: #fff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #030518;
-    --foreground: #fff;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-weight: 300;
 }
 
@@ -27,7 +17,7 @@ body {
 }
 
 nav {
-  z-index: 9999;
+  z-index: 50;
 }
 
 body {
@@ -46,6 +36,7 @@ video {
   padding: 10px 40px;
   border-radius: 50px;
   box-sizing: border-box;
+  border: 1px solid #ffffff99;
 }
 .custom-btn-unshadow {
   font-size: 20px;
@@ -70,10 +61,6 @@ video {
   border-radius: 20px;
   border: 1px solid #fff;
   padding: 40px 20px;
-}
-
-.swiper-pagination {
-  top: 0 !important;
 }
 
 .pricing-card {
@@ -129,4 +116,118 @@ video {
 
 .accordion-border:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.swiperC {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.swiper-button-prev {
+  background-image: url("../../public/icons/left.png");
+  width: 45px !important;
+  left: -1px !important;
+}
+
+.swiper-button-prev::after {
+  content: "" !important;
+}
+.swiper-button-next::after {
+  content: "" !important;
+}
+
+.swiper-button-next {
+  background-image: url("../../public/icons/right.png");
+  width: 45px !important;
+  right: 0 !important;
+}
+
+.number {
+  cursor: pointer;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number span {
+  width: 45%;
+  height: 2px;
+  background-color: rgba(255, 185, 81, 1);
+}
+
+.number div {
+  border-radius: 50px;
+  box-shadow: 0px 0px 48px 1px rgba(255, 255, 255, 0.15) inset;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffffff99;
+  margin: 0 15px;
+}
+
+@layer base {
+  :root {
+    --background: 240, 81%, 5%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .class-span {
+    color: #f5a622;
+    padding: 4px 11px;
+    font-size: 13px;
+  }
+
+  .custom-btn-unshadow {
+    font-size: 13px;
+    padding: 8px 13px;
+  }
+
+  .custom-btn {
+    font-size: 13px;
+    padding: 8px 13px;
+  }
+
+  .linkedin {
+    padding-top: 22px;
+    padding-bottom: 50px;
+  }
 }

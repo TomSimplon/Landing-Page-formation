@@ -1,3 +1,18 @@
+interface Block {
+  _type: "block"
+  style?: "normal" | "h1" | "h2" | "blockquote"
+  children: {
+    _type: "span"
+    text: string
+    marks?: ("strong" | "em" | "link")[]
+  }[]
+  markDefs?: {
+    _key: string
+    _type: string
+    href: string // Pour les liens
+  }[]
+}
+
 export interface FirstData {
   text1: string
   button1: string
@@ -15,6 +30,7 @@ export interface FirstData {
   }[]
   text2: string
   text2tooltip: string[]
+  richText2: Block[] // Ajout du champ richText2
 }
 
 interface Icon {
@@ -30,6 +46,7 @@ interface ArrayTextBlock {
 }
 
 export interface SecondData {
+  richText1: Block[]
   text1: string
   arrayText: ArrayTextBlock[]
   heroTitle: string
@@ -51,24 +68,36 @@ export interface BlockText {
 }
 
 export interface ThirdData {
+  richText1: Block[]
   text1: string
   text2: string
   button1: string
   text3: string
   text4: string
+  richText2: Block[]
   arrayText: BlockText[]
   button2: string
+  image1: {
+    asset: {
+      url: string
+    }
+  }
+  image2: {
+    asset: {
+      url: string
+    }
+  }
 }
 export interface FourData {
+  richText1: Block[]
   text1: string
-  text2: string
   button1: string
   arrayText: BlockText[]
 }
 
 export interface FiveData {
+  richText1: Block[]
   text1: string
-  text2: string
   text3: string
   arrayText: {
     title: string
@@ -95,7 +124,7 @@ export interface Person {
 export interface PricingData {
   name: string
   title: string
-  text1: string
+  richText1: Block[]
   text2: string
   text3: string
   text4: string
@@ -127,14 +156,14 @@ export interface Avis {
 
 export interface JoinUsData {
   text1: string
-  text2: string
+  richText1: Block[]
   text3: string
   arrayAvis: Avis[]
   button1: string
 }
 
 export interface FaqData {
-  text1: string
+  richText1: Block[]
   text2: string
   image: {
     asset: {

@@ -1,6 +1,14 @@
 import { client, urlFor } from "@/lib/sanity"
 import Image from "next/image"
 import Link from "next/link"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 async function getLogo() {
   const query = `*[_type == "Header"][0] {
@@ -17,14 +25,34 @@ async function getLogo() {
 export default async function Header() {
   const data = await getLogo()
   return (
-    <nav className="fixed w-full bg-[#090d19] border-effect px-16 py-6 flex items-center justify-between overflow-hidden">
+    <nav className="fixed w-full bg-[#090d19] border-effect px-4 xl:px-16 py-6 flex items-center justify-between overflow-hidden">
       <Image src={urlFor(data.logo).url()} alt="Company Logo" width={120} height={45} />
-      <div className="flex gap-10">
-        <Link href="#">Qui je suis</Link>
-        <Link href="#">Notre accompagnement</Link>
-        <Link href="#">Avis clients</Link>
+      <div className="hidden xl:flex gap-10 ">
+        <Link href="#whoami">Qui je suis</Link>
+        <Link href="#program">Notre accompagnement</Link>
+        <Link href="#reviews">Avis clients</Link>
       </div>
-      <button className="custom-btn">Prendre rdv</button>
+      <button className="hidden xl:flex custom-btn">Prendre rdv</button>
+      <div className="xl:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Image src="/icons/burger.svg" alt="Menu" width={24} height={24} />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>
+              <Link href="#">Qui je suis</Link>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link href="#">Notre accompagnement</Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link href="#">Avis clients</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </nav>
   )
 }

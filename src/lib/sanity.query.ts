@@ -2,20 +2,22 @@ import { groq } from "next-sanity"
 
 // Query schema datasets
 export const firstQuery = groq`*[_type == "First"][0]{
-	text1,
-	button1,
-	clientsImage{
-		asset->{_id, url}
-	},
-	clients,
-	iaGallery[]{
-		asset->{url}
-	},
-	text2,
-	text2tooltip
+  text1,
+  button1,
+  clientsImage{
+    asset->{_id, url}
+  },
+  clients,
+  iaGallery[]{
+    asset->{url}
+  },
+  text2,
+  text2tooltip,
+  richText2
 }`
 
 export const secondQuery = groq`*[_type == "Second"][0]{
+richText1,
 	text1,
 	arrayText[]{
 		icon{
@@ -36,21 +38,30 @@ export const secondQuery = groq`*[_type == "Second"][0]{
 }`
 
 export const thirdQuery = groq`*[_type == "Third"][0]{
+	richText1,
   text1,
   text2,
   button1,
   text3,
   text4,
+	richText2,
   arrayText[]{
     title,
     text
   },
-  button2
+  button2,
+  image1{
+  	asset->{url}
+	},
+  image2{
+  	asset->{url}
+	}
+	
 }
 `
 export const fourQuery = groq`*[_type == "Four"][0]{
+	richText1,
   text1,
-  text2,
   arrayText[]{
     title,
     text
@@ -60,8 +71,8 @@ export const fourQuery = groq`*[_type == "Four"][0]{
 `
 
 export const fiveQuery = groq`*[_type == "Five"][0]{
+	richText1,
   text1,
-  text2,
   text3,
   arrayText[]{
     title,
@@ -72,7 +83,7 @@ export const fiveQuery = groq`*[_type == "Five"][0]{
 }
 `
 export const pricingQuery = groq`*[_type == "Pricing"][0]{
-  text1,
+	richText1,
   text2,
   text3,
   text4,
@@ -98,7 +109,7 @@ export const pricingQuery = groq`*[_type == "Pricing"][0]{
 
 export const joinUsQuery = groq`*[_type == "joinus"][0]{
   text1,
-  text2,
+	richText1,
   text3,
   arrayAvis[]{
     Contenu,
@@ -112,7 +123,7 @@ export const joinUsQuery = groq`*[_type == "joinus"][0]{
 }`
 
 export const faqQuery = groq`*[_type == "faq"][0]{
-  text1,
+	richText1,
   text2,
   image{
     asset->{url}

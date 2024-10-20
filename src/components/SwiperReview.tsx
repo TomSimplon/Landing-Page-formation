@@ -1,7 +1,7 @@
 "use client"
 import { Avis } from "@/types/queryTypes"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Pagination, Navigation } from "swiper/modules"
+import { Autoplay, Navigation } from "swiper/modules"
 import Image from "next/image"
 import "swiper/css"
 import "swiper/css/pagination"
@@ -10,9 +10,9 @@ export default function SwiperReview(data: { data: Avis[] }) {
   const half = Math.ceil(data.data.length / 2)
   const firstHalf = data.data.slice(0, half)
   const secondHalf = data.data.slice(half)
-  console.log(`firstHalf, secondHalf`, firstHalf, secondHalf)
+
   return (
-    <div className="relative flex gap-[30px] items-center justify-center">
+    <div className="hidden relative xl:flex gap-[30px] items-center justify-center">
       <img className="absolute" src="/blur/avisBlur.png" alt="blur" />
       <Swiper
         slidesPerView="auto"
