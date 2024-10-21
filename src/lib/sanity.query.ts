@@ -46,6 +46,9 @@ export const thirdQuery = groq`*[_type == "Third"][0]{
   text4,
 	richText2,
   arrayText[]{
+  	icon{
+  		asset->{url}
+		},
     title,
     text
   },
@@ -104,6 +107,7 @@ export const pricingQuery = groq`*[_type == "Pricing"][0]{
     },
     name
   },
+  paymentLink,
   button1
 }`
 

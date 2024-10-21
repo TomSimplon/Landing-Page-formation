@@ -32,7 +32,9 @@ export default async function Header() {
         <Link href="#program">Notre accompagnement</Link>
         <Link href="#reviews">Avis clients</Link>
       </div>
-      <button className="hidden xl:flex custom-btn">Prendre rdv</button>
+      <Link href="#pricing">
+        <button className="hidden xl:flex custom-btn">Vos visuels en un clic avec l&apos;IA</button>
+      </Link>
       <div className="xl:hidden">
         <DropdownMenu>
           <DropdownMenuTrigger>
@@ -40,15 +42,15 @@ export default async function Header() {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>
-              <Link href="#">Qui je suis</Link>
+              <Link href="#whoami">Qui je suis</Link>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href="#">Notre accompagnement</Link>
+              <Link href="#program">Notre accompagnement</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href="#">Avis clients</Link>
+              <Link href="#reviews">Avis clients</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

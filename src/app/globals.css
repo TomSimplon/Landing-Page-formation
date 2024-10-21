@@ -230,4 +230,29 @@ video {
     padding-top: 22px;
     padding-bottom: 50px;
   }
+
+  .number {
+    position: relative;
+  }
+
+  .numberParent:first-child span:first-child {
+    display: none;
+  }
+  .numberParent:last-child span:last-child {
+    display: none;
+  }
+
+  .number span {
+    position: absolute;
+    width: 2px;
+    height: 35%;
+    background-color: rgba(255, 185, 81, 1);
+  }
+
+  .number span:first-child {
+    top: 0;
+  }
+  .number span:last-child {
+    bottom: 0;
+  }
 }

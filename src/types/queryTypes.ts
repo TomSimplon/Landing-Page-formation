@@ -63,6 +63,11 @@ export interface SecondData {
 }
 
 export interface BlockText {
+  icon: {
+    asset: {
+      url: string
+    }
+  }
   title: string
   text: string
 }
@@ -140,6 +145,7 @@ export interface PricingData {
   }
   text9: string
   arrayHeros: Person[]
+  paymentLink: string
   button1: string
 }
 

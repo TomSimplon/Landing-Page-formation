@@ -26,6 +26,7 @@ import SwiperReview from "@/components/SwiperReview"
 import SwiperReviewResponsive from "@/components/SwiperReviewResponsive"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { PortableText } from "@portabletext/react"
+import Link from "next/link"
 
 export default async function Home() {
   const data = (await sanityFetch({
@@ -83,7 +84,9 @@ export default async function Home() {
           <div className="font mt-3 xl:mt-6 text-base xl:text-[18px] xl:w-[750px]">
             <PortableText value={data.richText2} />
           </div>
-          <button className="w-full xl:w-fit custom-btn mt-6 xl:mt-10 font-medium text-xl">{data.button1}</button>
+          <Link href="#pricing">
+            <button className="w-full xl:w-fit custom-btn mt-6 xl:mt-10 font-medium text-xl">{data.button1}</button>
+          </Link>
           <div className="hidden xl:flex gap-2.5 items-center mt-6">
             <Image
               src={urlFor(data.clientsImage).url()}
@@ -106,18 +109,18 @@ export default async function Home() {
             muted
             loop
             className="absolute w-[285px] xl:w-[360px] h-[170px] xl:h-[200px] object-cover origin-top-left -rotate-3 z-20 bottom-32 -right-3 xl:-bottom-[40px] xl:right-[450px]"
-            src={data.iaGallery[4].asset.url}
+            src={data.iaGallery[5]?.asset.url}
           ></video>
           <Image
             className="block xl:hidden z-10 absolute bottom-52 -right-6 origin-top-left rotate-2 w-[160px] h-[230px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[1].asset.url}
             alt="IA Gallery"
             width={160}
             height={230}
           />
           <Image
             className="block xl:hidden z-20 absolute bottom-40 -right-2 origin-top-right -rotate-3 w-[95px] h-[135px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[2].asset.url}
             alt="IA Gallery"
             width={95}
             height={135}
@@ -131,7 +134,7 @@ export default async function Home() {
           />
           <Image
             className="block xl:hidden z-30 absolute bottom-44 left-2 origin-top-right -rotate-2 w-[73px] h-[120px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[4].asset.url}
             alt="IA Gallery"
             width={73}
             height={120}
@@ -140,14 +143,14 @@ export default async function Home() {
         <div className="hidden xl:flex iaGrid relative w-full overflow-hidden">
           <Image
             className="overflow-hidden z-40 absolute -top-[20px] -right-6 origin-top-left rotate-6 w-[256px] h-[360px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[1].asset.url}
             alt="IA Gallery"
             width={256}
             height={360}
           />
           <Image
             className="z-30 absolute top-[40px] right-[200px] origin-top-right -rotate-6 w-[190px] h-[270px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[2].asset.url}
             alt="IA Gallery"
             width={200}
             height={270}
@@ -161,7 +164,7 @@ export default async function Home() {
           />
           <Image
             className="z-20 absolute top-[250px] right-[170px] origin-top-left rotate-6 w-[210px] h-[300px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[4].asset.url}
             alt="IA Gallery"
             width={210}
             height={300}
@@ -213,7 +216,9 @@ export default async function Home() {
                 <p className="text-sm xl:text-xl xl:w-[300px]">{data2.heroDesc2}</p>
               </div>
             </div>
-            <button className="custom-btn-unshadow mt-10 xl:mt-16">{data2.button1}</button>
+            <Link href="#pricing">
+              <button className="custom-btn-unshadow mt-10 xl:mt-16">{data2.button1}</button>
+            </Link>
           </div>
           <div>
             <Image
@@ -235,24 +240,29 @@ export default async function Home() {
           <PortableText value={data3.richText1} />
         </div>
         <p className="text-[#FFFFFF99] xl:w-[640px] xl:text-center mt-3.5">{data3.text2}</p>
-        <button className="w-full xl:w-fit custom-btn mt-4 text-base xl:text-xl xl:mt-10">{data3.button1}</button>
+        <Link href="#pricing">
+          <button className="w-full xl:w-fit custom-btn mt-4 text-base xl:text-xl xl:mt-10">{data3.button1}</button>
+        </Link>
         <img className="hidden xl:block" src={data3.image1?.asset.url} alt="test" />
         <img className="xl:hidden my-32 mx-auto" src={data3.image2?.asset.url} alt="test" />
       </div>
       <div className="rounded-2xl xl:rounded-none flex flex-col items-start px-3 pb-4 xl:px-0 xl:items-center xl:mt-16 bg-white text-black">
-        <p className="custom-btn-unshadow mt-14 xl:mt-10">{data3.text3}</p>
-        <div className="text-3xl xl:text-4xl mt-4">
+        <p className="custom-btn-unshadow mt-14 xl:mt-10 !text-base">{data3.text3}</p>
+        <div className="text-3xl xl:text-4xl mt-4 mb-12">
           <PortableText value={data3.richText2} />
         </div>
-        <div className="flex xl:flex-row flex-col xl:gap-10">
+        <div className="flex xl:flex-row flex-col gap-[25pxp] xl:gap-[60px] xl:px-20">
           {data3.arrayText?.map((block, index) => (
-            <div key={index} className="flex flex-col items-start mt-8">
-              <h3 className="text-xl font-bold mb-2">{block.title}</h3>
-              <p>{block.text}</p>
+            <div key={index} className="flex flex-col items-start mt-4 xl:mt-8">
+              <Image src={block.icon.asset.url} alt="Icon" width={56} height={56} />
+              <h3 className="text-lg xl:text-xl font-medium mb-2 mt-6">{block.title}</h3>
+              <p className="text-sm xl:text-base">{block.text}</p>
             </div>
           ))}
         </div>
-        <button className="mt-4 bg-[#F69D2F] rounded px-4 py-2 m-auto">{data3.button2}</button>
+        <Link href="#pricing">
+          <button className="mt-12 xl:mt-24 custom-btn-unshadow m-auto">{data3.button1}</button>
+        </Link>
       </div>
       <div id="program" className="mt-44 flex flex-col items-center">
         <p className="class-span">{data4.text1}</p>
@@ -260,11 +270,19 @@ export default async function Home() {
           <PortableText value={data4.richText1} />
         </div>
         <SwiperContent data={data4.arrayText} />
-        <div>
+        <div className="xl:hidden">
           {data4.arrayText.map((item, index) => (
-            <div key={index} className="flex flex-col items-center mt-8 swiper-item-custom">
-              <h3 className="text-2xl font-medium">{item.title}</h3>
-              <p className="text-[#ffffffcc] text-center mt-2">{item.text}</p>
+            <div key={index} className="flex numberParent ">
+              <div className="!flex justify-center number mr-[50px]">
+                <span></span>
+                <div>{index + 1}</div>
+                <span></span>
+              </div>
+
+              <div className="flex flex-col items-center mt-8 swiper-item-custom !p-6 mr-3">
+                <h3 className="text-base font-medium text-center">{item.title}</h3>
+                <p className="text-[#ffffffcc] text-sm text-center mt-2">{item.text}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -313,7 +331,7 @@ export default async function Home() {
           <Image src={data5.arrayText[3].imageUrl} alt="Image" width={700} height={400} />
         </div>
       </div>
-
+      <div id="pricing"></div>
       <div className="px-3 xl:px-0 mt-24 xl:mt-44">
         <div className="text-3xl xl:text-4xl xl:text-center">
           <PortableText value={pricing.richText1} />
@@ -371,7 +389,9 @@ export default async function Home() {
                 </p>
               ))}
             </div>
-            <button className="pricing-button">{pricing.button1}</button>
+            <Link target="_blank" href={pricing.paymentLink}>
+              <button className="pricing-button">{pricing.button1}</button>
+            </Link>
             <div className="flex gap-1 items-center">
               <Image src={pricing.ctaImage?.asset.url} alt="CTA Image" width={82} height={16} />
               <p className="text-xs">{pricing.text9}</p>
@@ -401,7 +421,9 @@ export default async function Home() {
               <PortableText value={joinsUs.richText1} />
             </div>
             <p className="text-[#ffffffcc] mt-4">{joinsUs.text3}</p>
-            <button className="custom-btn mt-6 border border-white m-auto xl:mx-0 !px-12">{joinsUs.button1}</button>
+            <Link href="#pricing">
+              <button className="custom-btn mt-6 border border-white m-auto xl:mx-0 !px-12">{joinsUs.button1}</button>
+            </Link>
           </div>
           <SwiperReview data={joinsUs.arrayAvis} />
           <SwiperReviewResponsive data={joinsUs.arrayAvis} />
@@ -435,19 +457,25 @@ export default async function Home() {
             />
             <p className="text-2xl font-medium mt-3">{faq.text3}</p>
             <p className="text-xl text-[#FFFFFFCC] text-center mt-3">{faq.text4}</p>
-            <a href={faq.urlLinkedin}>
+            <Link target="_blank" href={faq.urlLinkedin}>
               <button className="text-sm flex items-center gap-4 mt-5 bg-white rounded-full px-4 py-2 text-black font-medium">
                 <img src="/icons/linkedin.svg" alt="" />
                 {faq.button1}
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
       <div className="bg-[#080d19] py-6 px-14">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 justify-center xl:justify-start">
           <Image src={faq.image.asset.url} alt="LinkedIn" width={52} height={52} />
           <p className="text-2xl font-medium">Tom Pustel</p>
+        </div>
+        <div className="flex xl:hidden flex-col items-center justify-center gap-4 mt-6">
+          <p className="text-base text-[#FFFFFF99]">Expert en IA</p>
+          <Link target="_blank" href={faq.urlLinkedin}>
+            <Image src="/icons/linkedinFooter.svg" alt="LinkedIn" width={34} height={34} />
+          </Link>
         </div>
       </div>
     </div>
