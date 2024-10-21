@@ -69,8 +69,6 @@ export default async function Home() {
     tags: ["FAQ"],
   })) as FaqData
 
-  console.log(`data3`, data)
-
   return (
     <div className="pt-[50px] xl:pt-[100px]">
       <div className="flex-col xl:flex-row first relative flex justify-between h-[900px] xl:h-[700px] overflow-hidden">
