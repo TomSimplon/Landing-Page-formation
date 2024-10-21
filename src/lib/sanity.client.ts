@@ -1,5 +1,5 @@
 import "server-only"
-import { createClient, type ClientConfig, type QueryParams } from "@sanity/client"
+import { createClient, type ClientConfig } from "@sanity/client"
 import { projectId, dataset, apiVersion } from "@/lib/sanity.api"
 
 const config: ClientConfig = {
