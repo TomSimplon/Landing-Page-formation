@@ -74,15 +74,15 @@ export default async function Home() {
       <div className="flex-col xl:flex-row first relative flex justify-between h-[900px] xl:h-[700px] overflow-hidden">
         <div className="flex flex-col items-baseline px-[13px] xl:pl-[80px] pt-[90px]">
           <p className="class-span">{data?.text1}</p>
-          <h1 className="text-4xl mt-3 xl:mt-4 xl:text-6xl font-medium xl:w-[640px]">
+          <h1 className="text-center xl:text-start text-4xl mt-3 xl:mt-4 xl:text-6xl font-medium xl:w-[640px]">
             Des <span className="italic">Visuels</span> <span className="italic text-[#f5a622]">d&apos;Impact</span> en
             un <span className="italic text-[#f5a622]">Clin d&apos;Œil</span> grâce à{" "}
             <span className="italic text-[#f5a622]">l&apos;IA</span>
           </h1>
-          <div className="font mt-3 xl:mt-6 text-base xl:text-[18px] xl:w-[750px]">
+          <div className="text-center xl:text-start font mt-3 xl:mt-6 text-base xl:text-[18px] xl:w-[750px]">
             <PortableText value={data.richText2} />
           </div>
-          <Link href="#pricing">
+          <Link href="#pricing" className='w-full xl:w-fit'>
             <button className="w-full xl:w-fit custom-btn mt-6 xl:mt-10 font-medium text-xl">{data.button1}</button>
           </Link>
           <div className="hidden xl:flex gap-2.5 items-center mt-6">
@@ -111,28 +111,28 @@ export default async function Home() {
           ></video>
           <Image
             className="block xl:hidden z-10 absolute bottom-52 -right-6 origin-top-left rotate-2 w-[160px] h-[230px] object-cover"
-            src={data.iaGallery[1].asset.url}
+            src={data.iaGallery[0].asset.url}
             alt="IA Gallery"
             width={160}
             height={230}
           />
           <Image
             className="block xl:hidden z-20 absolute bottom-40 -right-2 origin-top-right -rotate-3 w-[95px] h-[135px] object-cover"
-            src={data.iaGallery[2].asset.url}
+            src={data.iaGallery[1].asset.url}
             alt="IA Gallery"
             width={95}
             height={135}
           />
           <Image
             className="block xl:hidden z-40 absolute bottom-44 left-16 origin-top-right -rotate-12 w-[73px] h-[120px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[2].asset.url}
             alt="IA Gallery"
             width={73}
             height={120}
           />
           <Image
             className="block xl:hidden z-30 absolute bottom-44 left-2 origin-top-right -rotate-2 w-[73px] h-[120px] object-cover"
-            src={data.iaGallery[4].asset.url}
+            src={data.iaGallery[3].asset.url}
             alt="IA Gallery"
             width={73}
             height={120}
@@ -141,28 +141,28 @@ export default async function Home() {
         <div className="hidden xl:flex iaGrid relative w-full overflow-hidden">
           <Image
             className="overflow-hidden z-40 absolute -top-[20px] -right-6 origin-top-left rotate-6 w-[256px] h-[360px] object-cover"
-            src={data.iaGallery[1].asset.url}
+            src={data.iaGallery[0].asset.url}
             alt="IA Gallery"
             width={256}
             height={360}
           />
           <Image
             className="z-30 absolute top-[40px] right-[200px] origin-top-right -rotate-6 w-[190px] h-[270px] object-cover"
-            src={data.iaGallery[2].asset.url}
+            src={data.iaGallery[1].asset.url}
             alt="IA Gallery"
             width={200}
             height={270}
           />
           <Image
             className="z-40 absolute top-[310px] right-3 origin-top-right -rotate-2 w-[200px] h-[290px] object-cover"
-            src={data.iaGallery[3].asset.url}
+            src={data.iaGallery[2].asset.url}
             alt="IA Gallery"
             width={200}
             height={290}
           />
           <Image
             className="z-20 absolute top-[250px] right-[170px] origin-top-left rotate-6 w-[210px] h-[300px] object-cover"
-            src={data.iaGallery[4].asset.url}
+            src={data.iaGallery[3].asset.url}
             alt="IA Gallery"
             width={210}
             height={300}
