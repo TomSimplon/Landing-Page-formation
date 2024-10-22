@@ -244,8 +244,8 @@ export default async function Home() {
         <img className="hidden xl:block" src={data3.image1?.asset.url} alt="test" />
         <img className="xl:hidden my-32 mx-auto" src={data3.image2?.asset.url} alt="test" />
       </div>
-      <div className="rounded-2xl xl:rounded-none flex flex-col items-start px-3 pb-4 xl:px-0 xl:items-center xl:mt-16 bg-white text-black">
-        <p className="custom-btn-unshadow mt-14 xl:mt-10 !text-base">{data3.text3}</p>
+      <div className="rounded-2xl xl:rounded-none flex flex-col items-start px-3 pb-14 xl:px-0 xl:items-center xl:mt-16 bg-white text-black">
+        <p className="custom-btn-unshadow mt-14 !text-base">{data3.text3}</p>
         <div className="text-3xl xl:text-4xl mt-4 mb-12">
           <PortableText value={data3.richText2} />
         </div>
