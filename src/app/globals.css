@@ -214,6 +214,7 @@ video {
     color: #f5a622;
     padding: 4px 11px;
     font-size: 13px;
+    margin: auto;
   }
 
   .custom-btn-unshadow {
@@ -254,5 +255,17 @@ video {
   }
   .number span:last-child {
     bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    text-align: center;
+  }
+
+  .custom-btn-unshadow {
+    width: 100%;
   }
 }

@@ -72,7 +72,7 @@ export default async function Home() {
   return (
     <div className="pt-[50px] xl:pt-[100px]">
       <div className="flex-col xl:flex-row first relative flex justify-between h-[900px] xl:h-[700px] overflow-hidden">
-        <div className="flex flex-col items-baseline px-[13px] xl:pl-[80px] pt-[90px]">
+        <div className="flex flex-col items-baseline px-[25px] xl:pl-[80px] pt-[90px]">
           <p className="class-span">{data?.text1}</p>
           <h1 className="text-center xl:text-start text-4xl mt-3 xl:mt-4 xl:text-6xl font-medium xl:w-[640px]">
             Des <span className="italic">Visuels</span> <span className="italic text-[#f5a622]">d&apos;Impact</span> en
@@ -82,7 +82,7 @@ export default async function Home() {
           <div className="text-center xl:text-start font mt-3 xl:mt-6 text-base xl:text-[18px] xl:w-[750px]">
             <PortableText value={data.richText2} />
           </div>
-          <Link href="#pricing" className='w-full xl:w-fit'>
+          <Link href="#pricing" className="w-full xl:w-fit">
             <button className="w-full xl:w-fit custom-btn mt-6 xl:mt-10 font-medium text-xl">{data.button1}</button>
           </Link>
           <div className="hidden xl:flex gap-2.5 items-center mt-6">
@@ -191,7 +191,7 @@ export default async function Home() {
 
         <div className="mb-24 xl:mb-44 flex xl:flex-row flex-col mt-12 gap-12 xl:gap-24">
           {data2.arrayText.map((block, index) => (
-            <div key={index} className="flex flex-col items-start w-[310px]">
+            <div key={index} className="flex flex-col items-center xl:items-start xl:w-[310px]">
               <Image src={block.icon.asset.url} alt="Icon" width={56} height={56} />
               <h3 className="text-xl font-medium mt-4 mb-2">{block.title}</h3>
               <p className="text-[#ffffffcc]">{block.text}</p>
@@ -238,7 +238,7 @@ export default async function Home() {
           <PortableText value={data3.richText1} />
         </div>
         <p className="text-[#FFFFFF99] xl:w-[640px] xl:text-center mt-3.5">{data3.text2}</p>
-        <Link href="#pricing">
+        <Link href="#pricing" className="w-full xl:w-fit ">
           <button className="w-full xl:w-fit custom-btn mt-4 text-base xl:text-xl xl:mt-10">{data3.button1}</button>
         </Link>
         <img className="hidden xl:block" src={data3.image1?.asset.url} alt="test" />
@@ -251,14 +251,14 @@ export default async function Home() {
         </div>
         <div className="flex xl:flex-row flex-col gap-[25pxp] xl:gap-[60px] xl:px-20">
           {data3.arrayText?.map((block, index) => (
-            <div key={index} className="flex flex-col items-start mt-4 xl:mt-8">
+            <div key={index} className="flex flex-col items-center xl:items-start mt-4 xl:mt-8">
               <Image src={block.icon.asset.url} alt="Icon" width={56} height={56} />
               <h3 className="text-lg xl:text-xl font-medium mb-2 mt-6">{block.title}</h3>
               <p className="text-sm xl:text-base">{block.text}</p>
             </div>
           ))}
         </div>
-        <Link href="#pricing">
+        <Link href="#pricing" className="w-full xl:w-fit ">
           <button className="mt-12 xl:mt-24 custom-btn-unshadow m-auto">{data3.button1}</button>
         </Link>
       </div>
@@ -285,9 +285,9 @@ export default async function Home() {
           ))}
         </div>
       </div>
-      <div className="px-3 xl:px-0 mt-44 flex flex-col items-start xl:items-center">
+      <div className="px-3 xl:px-0 mt-44 flex flex-col items-center">
         <p className="class-span">{data5.text1}</p>
-        <div className="my-3 xl:my-4 text-3xl xl:text-4xl">
+        <div className="text-center xl:text-start my-3 xl:my-4 text-3xl xl:text-4xl">
           <PortableText value={data5.richText1} />
         </div>
         <p className="text-[#ffffff99] text-base xl:text-xl">{data5.text3}</p>
@@ -301,7 +301,7 @@ export default async function Home() {
           return (
             <div
               key={index}
-              className="mx-3 xl:mx-0 flex flex-col justify-between items-start mt-8 xl:w-[405px] rounded-2xl border border-[#ffffffcc] p-5"
+              className="mx-3 xl:mx-0 flex flex-col justify-between items-center xl:items-start mt-8 xl:w-[405px] rounded-2xl border border-[#ffffffcc] p-5"
             >
               <span className="mb-4 class-span flex items-center gap-1">
                 <Image src="/icons/gift.png" alt="Gift" width={14} height={14} /> {index + 1}
@@ -355,7 +355,7 @@ export default async function Home() {
               <p className="text-2xl font-medium">{pricing.text2}</p>
               <span className="class-span !text-xs">{pricing.text4}</span>
             </div>
-            <p className="w-3/4 text-sm text-[#ffffffcc] mt-2">{pricing.text3}</p>
+            <p className="w-3/4 text-sm !text-start text-[#ffffffcc] mt-2">{pricing.text3}</p>
             <div className="flex items-center mt-4">
               <p className="text-5xl">{pricing.text5}</p>
               <p className="text-3xl text-[#FFFFFF99] line-through ml-4">{pricing.text6}</p>
@@ -419,8 +419,10 @@ export default async function Home() {
               <PortableText value={joinsUs.richText1} />
             </div>
             <p className="text-[#ffffffcc] mt-4">{joinsUs.text3}</p>
-            <Link href="#pricing">
-              <button className="custom-btn mt-6 border border-white m-auto xl:mx-0 !px-12">{joinsUs.button1}</button>
+            <Link href="#pricing" className="w-full xl:w-fit ">
+              <button className="w-full xl:w-fit custom-btn mt-6 border border-white m-auto xl:mx-0 !px-12">
+                {joinsUs.button1}
+              </button>
             </Link>
           </div>
           <SwiperReview data={joinsUs.arrayAvis} />
