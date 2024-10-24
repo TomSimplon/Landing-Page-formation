@@ -69,6 +69,10 @@ export default async function Home() {
     tags: ["FAQ"],
   })) as FaqData
 
+  const wordsData5 = data5.arrayText[3].title.split(" ")
+  const lastWordData5 = wordsData5.pop()
+  const titleWithoutLastWord5 = wordsData5.join(" ")
+
   return (
     <div className="pt-[50px] xl:pt-[100px]">
       <div className="flex-col xl:flex-row first relative flex justify-between h-[900px] xl:h-[700px] overflow-hidden">
@@ -320,9 +324,8 @@ export default async function Home() {
           <span className="class-span flex items-center gap-1">
             <Image src="/icons/gift.png" alt="Gift" width={14} height={14} /> 4
           </span>
-          <h3 className="text-2xl my-2">
-            {data5.arrayText[3].title} <span className="text-[#FFB951] italic">word</span>
-            <p className="text-[#ffffffcc] text-base">{data5.arrayText[3].text}</p>
+          <h3 className="text-2xl mb-2">
+            {lastWordData5} <span className="text-[#FFB951] italic">{titleWithoutLastWord5}</span>
           </h3>
         </div>
         <div>
