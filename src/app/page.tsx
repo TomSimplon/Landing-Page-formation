@@ -204,7 +204,7 @@ export default async function Home() {
         </div>
         <div
           id="whoami"
-          className="mb-24 xl:mb-40 bg-white rounded-2xl text-black w-full px-3 py-8 xl:px-16 xl:py-14 flex flex-col xl:flex-row gap-10 xl:gap-16 justify-between"
+          className="mb-24 xl:mb-40 bg-white rounded-2xl text-black w-full px-3 py-8 xl:px-16 xl:py-14 flex flex-col xl:flex-row gap-10 xl:gap-16 justify-center"
         >
           <div>
             <p className="text-2xl font-bold xl:w-[530px]">{data2.heroTitle}</p>
@@ -327,6 +327,7 @@ export default async function Home() {
           <h3 className="text-2xl mb-2">
             {lastWordData5} <span className="text-[#FFB951] italic">{titleWithoutLastWord5}</span>
           </h3>
+          <p className="mb-2 text-[#ffffffcc]">{data5.arrayText[3].text}</p>
         </div>
         <div>
           <Image src={data5.arrayText[3].imageUrl} alt="Image" width={700} height={400} />
