@@ -175,7 +175,7 @@ export default async function Home() {
       </div>
       <div className="mx-3 px-3 xl:px-7 py-9 xl:mx-16 my-6 xl:my-28 rounded-2xl bg-white text-black">
         <h3 className="text-3xl xl:text-5xl font-bold mb-6">{data.text2}</h3>
-        <div className="flex-col gap-3 xl:gap-0 xl:flex-row flex justify-between">
+        <div className="flex-col gap-3 xl:gap-[32px] xl:flex-row flex justify-center">
           {data.text2tooltip.map((tooltip, index) => (
             <p
               className="rounded-full xl:rounded-2xl text-base xl:text-2xl font-bold w-fit px-3 py-2 xl:p-3.5 border border-black"

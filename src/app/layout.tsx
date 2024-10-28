@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { Roboto } from "next/font/google"
 import Header from "@/components/Header"
+import { Analytics } from "@vercel/analytics/react"
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   )
