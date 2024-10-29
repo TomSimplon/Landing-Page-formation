@@ -73,6 +73,8 @@ export default async function Home() {
   const lastWordData5 = wordsData5.pop()
   const titleWithoutLastWord5 = wordsData5.join(" ")
 
+  console.log(`data5.arrayText[3].title`, data5.arrayText[3].title)
+
   return (
     <div className="pt-[50px] xl:pt-[100px]">
       <div className="flex-col xl:flex-row first relative flex justify-between h-[900px] xl:h-[700px] overflow-hidden">
@@ -325,7 +327,7 @@ export default async function Home() {
             <Image src="/icons/gift.png" alt="Gift" width={14} height={14} /> 4
           </span>
           <h3 className="text-2xl mb-2">
-            {lastWordData5} <span className="text-[#FFB951] italic">{titleWithoutLastWord5}</span>
+            {titleWithoutLastWord5} <span className="text-[#FFB951] italic">{lastWordData5}</span>
           </h3>
           <p className="mb-2 text-[#ffffffcc]">{data5.arrayText[3].text}</p>
         </div>
